@@ -1,0 +1,16 @@
+<h1>{{ race.name }}</h1>
+
+{% if error_message %}
+	<p><strong>{{ error_message }}</strong></p>
+{% endif %}
+
+<li>Ability increase: {{ race.ability_score_increase }} </li>
+<li>Age: {{ race.age }} </li>
+<li>Alignment: {{ race.alignment }} </li>
+<li>Size: {{ race.size }} </li>
+<li>Speed: {{ race.speed }} </li>
+<li>Languages: {{ race.languages }} </li>
+<li>Subraces: {{ race.subraces }} </li>
+<li>Darkvision: {{ race.darkvision }} </li>
+
+<br><button onclick="location.href = '/polls'">Back</button>           

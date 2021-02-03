@@ -1,0 +1,2 @@
+name	class_level	hit_die	primary_ability	saving_throws	armor_proficiency	weapon_proficiency	descr
+Barbarian	1	1d12	STR	STR,CON	Light armor,Medium armor,Shields	Simple weapons,Martial weapons	A fierce warrior of primitive background who can enter a battle rage

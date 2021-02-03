@@ -1,0 +1,77 @@
+#dnd12dnd
+
+python manage.py shell
+python manage.py runserver
+
+#Start App
+python manage.py startapp AppName
+
+
+#Create Views -> AppName/views.py
+from django.http import HttpResponse
+def index(request):
+    return HttpResponse("Hello, world. You're at the polls index.")
+
+
+#Include URLs -> AppName/urls.py (file needs to be created)
+from django.urls import path
+from . import views
+
+urlpatterns = [
+    path('', views.index, name='index'),
+]
+
+
+#Point the root URLs -> MySite/urls.py
+from django.contrib import admin
+from django.urls import path, include
+
+urlpatterns = [
+    path('pjs/', include('pjs.urls')),
+    path('admin/', admin.site.urls),
+]
+
+
+#Create Models -> AppName/models.py
+class Question(models.Model):
+    question_text = models.CharField(max_length=200)
+    pub_date = models.DateTimeField('date published')
+
+
+#Activate models -> MySite/settings.py
+INSTALLED_APPS = [
+    'AppName.apps.AppnameConfig',
+    'django.contrib.admin',
+    'django.contrib.auth',
+    'django.contrib.contenttypes',
+    'django.contrib.sessions',
+    'django.contrib.messages',
+    'django.contrib.staticfiles',
+]
+
+
+#Report changes in models
+python manage.py makemigrations polls
+
+#SQL commands for migration
+python manage.py sqlmigrate AppName 0001
+
+#Migrate models
+python manage.py migrate
+
+
+#Test models via shell
+python manage.py shell
+>>> from polls.models import ModelName
+>>> ...
+
+
+#Create SuperUser
+python manage.py createsuperuser
+
+
+#Make App modifiable in admin -> AppName/admin.py
+from django.contrib import admin
+from .models import ClassName
+
+admin.site.register(ClassName)

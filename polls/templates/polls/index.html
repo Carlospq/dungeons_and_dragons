@@ -1,0 +1,13 @@
+{% load static %}
+
+<link rel="stylesheet" type="text/css" href="{% static 'polls/style.css' %}">
+
+{% if Race_list %}
+    <ul>
+    {% for race in Race_list %}
+        <li><a href="{% url 'polls:detail' race.pk %}">{{ race.name }}</a></li>
+    {% endfor %}
+    </ul>
+{% else %}
+    <p>No polls are available.</p>
+{% endif %}
